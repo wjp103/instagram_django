@@ -1,0 +1,233 @@
+#detail_feed {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-left: 20%;
+    /* margin-right: 335px; */
+    /* min-height: 450px; */
+    width: 1500px;
+    height: 600px;
+  }
+  
+.photo .photo_contents{
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+  #detail_feed .photo {
+    position: relative;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: inline-block;
+    /* float: right; */
+  }
+
+  #detail_feed .detail_img{
+    max-width: 600px;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    width: 100%;
+    float: left;
+  }
+
+  .detail_img > img {
+    max-width: 100%;
+  }
+
+  .post_comment{
+    border: 0;
+    color: #3897f0;
+    color: rgba(var(--h5f,56,151,240),1);
+    display: inline;
+    padding: 0;
+    position: relative;
+  }
+
+  .photo .photo__header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .photo__header .photo__avatar {
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .photo .photo__user-info .photo__author {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .photo > img {
+    max-width: 100%;
+  }
+  .photo .photo_side{
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+  }
+  .photo .photo_side .photo__info {
+    padding: 15px 20px;
+  }
+  
+  .photo__actions {
+    margin-bottom: 15px;
+    font-size: 115%;
+  }
+  
+  .photo__actions .photo__action:first-child {
+    margin-right: 15px;
+  }
+  
+  .photo__actions .photo__action {
+    cursor: pointer;
+  }
+  
+  .photo .photo_side .photo__likes {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .photo .photo_side .photo__add-comment-container {
+    margin-top: 15px;
+    border-top: 1px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .photo__add-comment-container textarea {
+    width: 90%;
+    border: 0;
+    font-size: 14px;
+    resize: none;
+    height: 20px;
+  }
+  
+  .photo__add-comment-container textarea:focus,
+  .photo__add-comment-container textarea:active {
+    outline: none;
+  }
+  
+  .photo__add-comment-container i {
+    cursor: pointer;
+  }
+  
+  .photo .photo_side .photo__time-ago {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #999;
+    margin-top: 10px;
+    display: block;
+  }
+  
+  .photo__comment {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: calc(100% - 28px);
+  }
+  .photo__comments{
+    margin-bottom: 10px;   
+  }
+  .photo__comments .photo__comment-author {
+    font-weight: 600;
+  }
+  
+  .photo__comments .photo__header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .photo__comments img{
+      width: 100%
+  }
+  .photo__comments .photo__avatar {
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .comment_div .photo__comment .photo__user-info .photo__author {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .comment_div .comment_time{
+    display: inline-block;
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .comment_div > button{
+    background: 0 0;
+    border: 0;
+    cursor: pointer;
+    display: inline;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 14px;
+    margin-right: 16px;
+    padding: 0;
+  }
+
+    .comment_div{
+        display: inline-block;
+    }
+
+    .photo__comments .like_comment{
+        float: right;
+        margin-top:10px;
+    }
+    .like_comment > button{
+        background: 0 0;
+        border: 0;
+        cursor: pointer;
+        display: inline;
+        font-weight: 600;
+        line-height: 14px;
+        margin-right: 16px;
+        padding: 0;
+    }
+
+
+
+  .photo_reply{
+    margin-bottom: 10px;   
+    margin-left: 45px;
+  }
+  .photo_reply .photo__comment-author {
+    font-weight: 600;
+  }
+  
+  .photo_reply .photo__header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .photo_reply img{
+      width: 100%
+  }
+  .photo_reply .photo__avatar {
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .photo_reply .like_comment{
+    float: right;
+    margin-top:10px;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Space</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+    <nav class="navigation">
+        <div class="navigation__column">
+            <a href="/">
+                <!-- Master branch comment -->
+                <img src="/static/images/space.jpeg" />
+            </a>
+        </div>
+        <div class="navigation__column">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="navigation__column">
+            <ul class="navigations__links">
+                <li class="navigation__list-item">
+                    <a href="" class="navigation__link">
+                        <i class="fa fa-compass fa-lg"></i>
+                    </a>
+                </li>
+                <li class="navigation__list-item">
+                    <a href="#" class="navigation__link">
+                        <i class="fa fa-heart-o fa-lg"></i>
+                    </a>
+                </li>
+                <li class="navigation__list-item">
+                    <a href="/login/" class="navigation__link">
+                        <i class="fa fa-user-o fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main id="detail_feed">
+        <div class = detail_img>
+            <img src="/static/images/{{board.photo}}" />
+        </div>
+        <div class="photo">
+            <header class="photo__header">
+                <img src="/static/images/{{board.user.profile_photo}}" class="photo__avatar" />
+                <div class="photo__user-info">
+                    <span class="photo__author">{{board.user.name}}</span>
+                </div>
+            </header>
+            <div class='photo_contents'>{{board.content}}</div>
+            <div class = "photo_side">
+                <div class="photo__info">
+                    {% for comment in comments %}
+                        {% if comment.depth == 1%}
+                            <ul class="photo__comments">
+                                <img src="/static/images/{{comment.user.profile_photo}}" class="photo__avatar" />
+                                <div class="comment_div">
+                                    <li class="photo__comment">
+                                        <span class="photo__comment-author">{{comment.user.name}}</span> {{comment.content}}
+                                    </li>
+                                    <div class = 'comment_time'>{{comment.post_data}}</div> <button onclick="showReply({{comment.id}})">답글달기</button>
+                                    <div class = 'comment_time'>좋아요 {{comment.comment_like}}개</div> 
+                                    <div class="photo__add-comment-container">
+                                        <div id ='plain_{{ comment.id }}' class="textarea" style="display: none; width: 460px; v">
+                                            <textarea class="reply_contents_{{comment.id}}" name="comment" placeholder="Add a comment..."></textarea>
+                                            <button class="post_comment" onclick="postCommentReply({{comment.id}}, {{board.id}})" style="float: right;
+                                            margin-top: 5px;">게시</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="like_comment">
+                                    <button class="fa fa-heart-o fa-lg" onclick="likeComment({{comment.id}})"></button>
+                                </div>
+                            </ul>
+                        {%else%}
+                            <ul class="photo_reply">
+                                <img src="/static/images/{{comment.user.profile_photo}}" class="photo__avatar" />
+                                <div class="comment_div">
+                                    <li class="photo__comment">
+                                        <span class="photo__comment-author">{{comment.user.name}}</span> {{comment.content}}
+                                    </li>
+                                    <div class = 'comment_time'>{{comment.post_data}}</div>
+                                    <div class = 'comment_time'>좋아요 {{comment.comment_like}}개</div> 
+                                    <div class="photo__add-comment-container">
+                                    </div>
+                                </div>
+                                <div class="like_comment">
+                                    <button class="fa fa-heart-o fa-lg" onclick="likeComment({{comment.id}})"></button>
+                                </div>
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="photo__actions">
+                        <span class="photo__action">
+                            <i class="fa fa-heart-o fa-lg" onclick="likeBoard({{board.id}})"></i>
+                        </span>
+                        <span class="photo__action">
+                            <i class="fa fa-comment-o fa-lg"></i>
+                        </span>
+                    </div>
+                    <span class="photo__likes">좋아요 {{feedlike.count}}개</span>
+                    <span class="photo__time-ago">{{board.post_data}}</span>
+                    <div class="photo__add-comment-container">
+                        <textarea class="comment_contents_{{board.id}}" name="comment" placeholder="Add a comment..."></textarea>
+                        <button class="post_comment" onclick="postComment({{board.id}})">게시</button>
+                    </div>
+                </div>
+            </div>      
+            </div> 
+    </main>
+    <footer class="footer">
+        <div class="footer__column">
+            <nav class="footer__nav">
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">About Us</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Support</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Blog</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Press</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Api</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Jobs</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Privacy</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Terms</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Directory</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">Language</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer__column">
+            <span class="footer__copyright">© 2017 SpaceBar</span>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script>
+
+function postComment(board_id){
+        var content = $('.comment_contents_'+board_id).val();
+        $.ajax({
+            type: "POST", 
+            url: "/board/",
+            data:{
+                "board_id": board_id,
+                "content": content,
+            },
+            success: function(){
+                location.reload();
+            }
+        })
+}
+
+function postCommentReply(comment_id, board_id){
+        var content = $('.reply_contents_'+comment_id).val();
+        $.ajax({
+            type: "POST", 
+            url: "/comment/",
+            data:{
+                "comment_id": comment_id,
+                "board_id": board_id,
+                "content": content,
+            },
+            success: function(){
+                location.reload();
+            }
+        })
+}
+
+function likeBoard(board_id){
+    $.ajax({
+        type: "POST",
+        url: "/like/board/"+board_id+"/",
+        success: function(){
+            location.reload();
+        }
+    })
+}
+
+function likeComment(comment_id){
+    $.ajax({
+        type: "POST",
+        url: "/like/comment/"+comment_id+"/",
+        success: function(){
+            location.reload();
+        }
+    })
+}
+function showReply(commentID) {
+    if ($('#plain_' + commentID)[0].style.display == 'none') {
+    $('#plain_' + commentID)[0].style.display = '';
+    } else {
+    $('#plain_' + commentID)[0].style.display = 'none';
+    }
+}
+</script>
+</html>
